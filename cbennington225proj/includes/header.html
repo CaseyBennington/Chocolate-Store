@@ -1,0 +1,31 @@
+<?php # header.html
+// This page begins the HTML header for the site.
+
+// Start output buffering:
+ob_start();
+
+// Initialize a session:
+session_start();
+
+// Check for a $page_title value:
+if (!isset($page_title)) {
+$page_title = 'Casey\'s Chocolate';
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo (isset($page_title)) ? $page_title : 'Welcome!'; ?></title>
+        <link rel="stylesheet" href="/cbenningtonprojectITP225/cbennington225proj/includes/style.css" type="text/css"  />
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="/cbenningtonprojectITP225/cbennington225proj/includes/jquery.lightbox_me.js"></script>
+        <!-- <script src="/cbenningtonprojectITP225/cbennington225proj/includes/javascript.js"></script> -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <header>Casey's Chocolate Store</header>
+        <div id="Content">
+            <!-- End of Header -->

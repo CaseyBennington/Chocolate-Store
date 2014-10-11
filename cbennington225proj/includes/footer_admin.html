@@ -1,0 +1,26 @@
+<!-- Start of Footer -->
+</div><!--Content -->
+<div id = "Menu">
+    <ul>
+        <li><a href = "../index.php" title = "Home Page"><span>Home</span></a></li>
+    <?php
+    // This page completes the HTML template.
+    // Display links based upon the login status:
+    if (isset($_SESSION['customer_id'])) {
+    echo '<li><a href="../logout.php" title="Logout"><span>Logout</span></a></li><li><a href="../change_password.php" title="Change Your Password"><span>Change Password</span></a></li>';
+
+    // Add links if the customer is an administrator:
+    if ($_SESSION['customer_level'] == 1) {
+    echo '<li><a href="admin.php" title="Administration"><span>Administration</span></a></li>';
+    }
+    }
+    ?>
+    </ul>
+</div><!-- Menu -->
+<script src="/cbenningtonprojectITP225/cbennington225proj/includes/javascript.js"></script>
+</body>
+</html>
+<?php
+// Flush the buffered output.
+ob_end_flush();
+?>
