@@ -64,14 +64,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
                 // Send the email:
                 $body = "Thank you for registering at Casey's Chocolate Store. To activate your account, please click on this link:\n\n";
                 $body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
-                
-                $to = $trimmed['email'];
+
+                // $to = $trimmed['email'];
                 $subject = "Registration Confirmation";
 
-                $headers = "From: webmaster@xcpastudios.com\r\n";
-                $headers .= "MIME-Version: 1.0\r\n";
-                $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-                mail($to, $subject, $body, $headers);
+                // $headers = "From: webmaster@caseybennignton.com\r\n";
+                // $headers .= "MIME-Version: 1.0\r\n";
+                // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                // mail($to, $subject, $body, $headers);
+
+
+
+                $from = new SendGrid\Email(null, "webmaster@caseybennignton.com");
+                // $subject = "Hello World from the SendGrid PHP Library!";
+                $to = new SendGrid\Email(null, $trimmed['email']);
+                $content = new SendGrid\Content("text/plain", $body);
+                $mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+                $apiKey = getenv('SENDGRID_API_KEY');
+                $sg = new \SendGrid($apiKey);
+
+                $response = $sg->client->mail()->send()->post($mail);
+                echo $response->statusCode();
+                echo $response->headers();
+                echo $response->body();
+
+
+
 
                 // Finish the page:
                 echo '<h1>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account.</h1>';
