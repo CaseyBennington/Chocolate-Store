@@ -22,7 +22,7 @@ define('EMAIL', 'caseybennington@gmail.com');
 define ('BASE_URL', 'https://caseys-chocolate-store.herokuapp.com/');
 
 // Location of the MySQL connection script:
-define ('MYSQL', '/mysqli_connect.php');
+define ('MYSQL', 'mysqli_connect.php');
 
 // Adjust the time zone for PHP 5.1 and greater:
 date_default_timezone_set ('US/Pacific');
