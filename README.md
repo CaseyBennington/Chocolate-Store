@@ -1,3 +1,4 @@
+[![Play the game.](chocolate-store.png)]()
 # Chocolate-Store
 Chocolate Store Shopping cart application.
 
