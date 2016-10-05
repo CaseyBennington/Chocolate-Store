@@ -24,8 +24,6 @@ define ('BASE_URL', 'https://caseys-chocolate-store.herokuapp.com/');
 // Location of the MySQL connection script:
 define ('MYSQL', 'mysqli_connect.php');
 
-define ('SENDGRID_API_KEY' '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');
-
 // Adjust the time zone for PHP 5.1 and greater:
 date_default_timezone_set ('US/Pacific');
 
