@@ -73,8 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
                 // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
                 // mail($to, $subject, $body, $headers);
 
-
-
                 $from = new SendGrid\Email(null, "webmaster@caseybennignton.com");
                 // $subject = "Hello World from the SendGrid PHP Library!";
                 $to = new SendGrid\Email(null, $trimmed['email']);
@@ -85,12 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
                 $sg = new \SendGrid($apiKey);
 
                 $response = $sg->client->mail()->send()->post($mail);
-                echo $response->statusCode();
-                echo $response->headers();
-                echo $response->body();
-
-
-
 
                 // Finish the page:
                 echo '<h1>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account.</h1>';
