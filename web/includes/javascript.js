@@ -141,18 +141,17 @@ $(document).ready(function() {
             $("#total").html(sum);
         });
     });
-    $(".delete").onclick(function() {
+    $(".delete").onclick = function() {
         var chk = confirm("Are you sure you wish to delete this product?");
         if (chk)
             return true;
         else
             return false;
-    });
+    };
 
     $("#delete-<?php echo $id; ?>").submit(function() {
         return confirm("Are you sure you want to delete this product??");
     });
-
 
     var fewSeconds = 5;
     $('form').submit(function() {
