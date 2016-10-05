@@ -139,7 +139,7 @@ $(document).ready(function() {
                 sum += value;
             }
             $("#total").html(sum);
-        })
+        });
     });
     $(".delete").onclick(function() {
         var chk = confirm("Are you sure you wish to delete this product?");
@@ -173,11 +173,11 @@ $(document).ready(function() {
         centered: true,
         closeClick: false,
         onLoad: function() {
-            $('#login_form').find('input:first').focus()
+            $('#login_form').find('input:first').focus();
         },
         overlayCSS: {
             background: 'black',
-            opacity: .7
+            opacity: 0.7
         }
     });
 });
