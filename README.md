@@ -1,4 +1,4 @@
-[![Play the game.](chocolate-store.png)](https://caseys-chocolate-store.herokuapp.com/)
+[![Play the game.](Chocolate-store.png)](https://caseys-chocolate-store.herokuapp.com/)
 # Chocolate-Store
 Chocolate Store Shopping cart application.
 
