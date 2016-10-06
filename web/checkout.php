@@ -237,7 +237,7 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
 <br>
 ";
         // Message to the customer:
-        echo '<footer>Thank you for shopping with us.<br>Casey\'s Candy Store.<footer></div>';
+        echo '<footer>Thank you for shopping with us.<br>Casey\'s Chocolate Store.<footer></div>';
 
 
         // Send emails and do whatever else.      ///////////////////////
@@ -317,7 +317,7 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
 
         // $to = $_POST["email"];
 
-        $subject = "Your recent order receipt from Casey's Candy Store.";
+        $subject = "Your recent order receipt from Casey's Chocolate Store.";
 
         // $headers = "From: webmaster@caseybennington.com\r\n";
         $headers .= "MIME-Version: 1.0\r\n";

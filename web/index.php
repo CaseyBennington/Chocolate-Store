@@ -27,7 +27,7 @@ require (MYSQL);
 
     <!-- A bordered table for item orders -->
     <table border = "border">
-        <!-- First, the column headings --> 
+        <!-- First, the column headings -->
         <tr>
             <th>Product Name</th>
             <th>Product Picture</th>
@@ -40,6 +40,7 @@ require (MYSQL);
         $q = "SELECT * FROM products ORDER BY product_name";
 
         $r = mysqli_query($dbc, $q);
+        echo $r;
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
             echo "<tr>
             <th>{$row['product_name']} {$row['size']}</th>\n";
@@ -79,7 +80,7 @@ require (MYSQL);
             <input class="required" required placeholder="Joe" pattern="\w+" title="Please enter your first name." type = "text"  name = "fName" id="fName" size = "30" value ="<?php if (isset($row['first_name'])) echo $row['first_name']; ?>" />
         </div>
         <div>
-            <label for="lName">Last Name:</label>  
+            <label for="lName">Last Name:</label>
             <input class="required" required placeholder="Smith" pattern="\w+" title="Please enter your last name." type = "text"  name = "lName" id="lName" size = "30" value ="<?php if (isset($row['last_name'])) echo $row['last_name']; ?>" />
         </div>
         <div>
@@ -116,8 +117,8 @@ require (MYSQL);
     <!-- The radio buttons for the payment method -->
     <h3>Payment Method:</h3>
     <div>
-        <input class="required" required title="Please select your payment type." type = "radio" name = "payment" id="payment" value = "visa" checked = "checked" />Visa 
-        <input type = "radio" name = "payment" id="payment" value = "mc" />Master Card 
+        <input class="required" required title="Please select your payment type." type = "radio" name = "payment" id="payment" value = "visa" checked = "checked" />Visa
+        <input type = "radio" name = "payment" id="payment" value = "mc" />Master Card
         <input type = "radio" name = "payment" id="payment" value = "discover" />Discover
     </div>
     <label for="ccDate">Date:(mm/dd/yyyy)</label><input class="required date" required pattern="\d{1,2}/\d{1,2}/\d{4}" title="Please enter an expiration date." type ="date" name="ccDate" id ="ccDate" value =""/><br>
@@ -125,7 +126,7 @@ require (MYSQL);
     <p id="ccExample">(eg. 4111-1111-1111-1111)</p>
     <!-- The submit and reset buttons -->
     <p>
-        <input type = "submit" value = "Submit Order" /> 
+        <input type = "submit" value = "Submit Order" />
         <input type = "reset" value = "Clear Order Form" />
     </p>
 </form>
