@@ -2,6 +2,8 @@
 # forgot_password.php
 // This page allows a customer to reset their password, if forgotten.
 require ('includes/config.inc.php');
+require ('../vendor/autoload.php');
+
 $page_title = 'Forgot Your Password';
 include ('includes/header.html');
 

@@ -5,6 +5,7 @@
 // This page assumes that the billing process worked (the money has been taken).
 // Include the configuration file:
 require ('includes/config.inc.php');
+require ('../vendor/autoload.php');
 // Set the page title and include the HTML header:
 $page_title = 'Order Confirmation';
 include ('includes/header.html');

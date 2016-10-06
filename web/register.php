@@ -2,6 +2,7 @@
 # register.php
 // This is the registration page for the site.
 require ('includes/config.inc.php');
+require ('../vendor/autoload.php');
 $page_title = 'Register';
 include ('includes/header.html');
 

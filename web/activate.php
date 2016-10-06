@@ -2,6 +2,7 @@
 # activate.php
 // This page activates the customer's account.
 require ('includes/config.inc.php');
+require ('../vendor/autoload.php');
 $page_title = 'Activate Your Account';
 include ('includes/header.html');
 

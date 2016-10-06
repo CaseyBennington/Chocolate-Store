@@ -3,6 +3,7 @@
 // This is the main page for the site.
 // Include the configuration file:
 require ('includes/config.inc.php');
+require ('../vendor/autoload.php');
 
 // Set the page title and include the HTML header:
 $page_title = 'Welcome to Casey\'s Chocolate!';
@@ -40,7 +41,6 @@ require (MYSQL);
         $q = "SELECT * FROM products ORDER BY product_name";
 
         $r = mysqli_query($dbc, $q);
-        echo $r;
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
             echo "<tr>
             <th>{$row['product_name']} {$row['size']}</th>\n";
