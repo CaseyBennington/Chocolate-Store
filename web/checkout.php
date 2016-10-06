@@ -243,24 +243,24 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
         // Send emails and do whatever else.      ///////////////////////
         $body = "<html><head>"
                 . "<style>#receipt {
-    padding:30px;
-    width: 60%;
-    font-size:1.3em;
-    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-    text-shadow:
-        -1px -1px 0 #333,
-        1px -1px 0 #333,
-        -1px 1px 0 #333,
-        1px 1px 0 #333;
-}
-#receipt h3 {
-    padding-left:0px;
-    margin-left:0px;
-    margin-bottom:5px;
-}
-#receipt footer{
-    font-size:1em;
-}</style></head><body>";
+                    padding:30px;
+                    width: 60%;
+                    font-size:1.3em;
+                    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+                    text-shadow:
+                        -1px -1px 0 #333,
+                        1px -1px 0 #333,
+                        -1px 1px 0 #333,
+                        1px 1px 0 #333;
+                    }
+                    #receipt h3 {
+                        padding-left:0px;
+                        margin-left:0px;
+                        margin-bottom:5px;
+                    }
+                    #receipt footer{
+                        font-size:1em;
+                    }</style></head><body>";
         $body .= "<table>";
         $body .= "<div id=\"receipt\">";
         $body .= "<h1>Order Confirmation</h1>";
@@ -315,26 +315,24 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
         $body .= "</table>";
         $body .= "</body></html>";
 
-
         // $to = $_POST["email"];
 
         $subject = "Your recent order receipt from Casey's Candy Store.";
 
         // $headers = "From: webmaster@caseybennington.com\r\n";
-        // $headers .= "MIME-Version: 1.0\r\n";
-        // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         // mail($to, $subject, $body, $headers);
 
-        $from = new SendGrid\Email(null, "webmaster@caseybennignton.com");
+        $from = new SendGrid\Email(null, "webmaster@caseybennington.com");
         $to = new SendGrid\Email(null, $_POST["email"]);
         $content = new SendGrid\Content("text/plain", $body);
-        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+        $mail = new SendGrid\Mail($from, $subject, $to, $content, $headers);
 
         $apiKey = getenv('SENDGRID_API_KEY');
         $sg = new \SendGrid($apiKey);
 
         $response = $sg->client->mail()->send()->post($mail);
-
 
     } else { // Rollback and report the problem.
         mysqli_rollback($dbc);
@@ -348,6 +346,6 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
     // Send the order information to the administrator.
 }
 
-mysqli_close($dbc);
-include ('includes/footer.html');
+    mysqli_close($dbc);
+    include ('includes/footer.html');
 ?>

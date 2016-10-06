@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
             // Send an email:
             $body = "Your password to log into Casey's Chocolate Store has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
-            $from = new SendGrid\Email(null, "admin@caseybennignton.com");
+            $from = new SendGrid\Email(null, "admin@caseybennington.com");
             $to = new SendGrid\Email(null, $_POST["email"]);
             $subject = "Your temporary password.";
             $content = new SendGrid\Content("text/plain", $body);
