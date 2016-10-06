@@ -20,7 +20,7 @@
     echo '<h1>Welcome to the administration';
     echo ", {$_SESSION['first_name']}";
     echo '!</h1>';
-    require (".." . MYSQL);
+    require ("../" . MYSQL);
 
     $q = 'SELECT COUNT(product_id) FROM products';
     $r = @mysqli_query($dbc, $q);

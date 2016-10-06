@@ -20,7 +20,7 @@ if ($_SESSION['customer_level'] != 1) {
 echo '<h1>Welcome to the administration';
 echo ", {$_SESSION['first_name']}";
 echo '!</h1>';
-require (".." . MYSQL);
+require ("../" . MYSQL);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
     // Validate the incoming data...

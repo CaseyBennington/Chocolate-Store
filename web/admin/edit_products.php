@@ -18,7 +18,7 @@
     echo '<h1>Welcome to the administration';
     echo ", {$_SESSION['first_name']}";
     echo '!</h1>';
-    require (".." . MYSQL);
+    require ("../" . MYSQL);
 
     // Check for a valid product ID, through GET or POST:
     if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) { // From manage_inventory.php
