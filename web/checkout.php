@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Make the query:
         $q = "UPDATE customers SET first_name = '$fn', last_name = '$ln', street = '$s', city = '$c', state = '$state', zip = '$z', email = '$e' WHERE customer_id = '$cid'";
         $r = mysqli_query($dbc, $q); // Run the query.
-        if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.	
+        if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
             // Print a message:
             echo '<h1>Thank you!</h1>
 		  <p class="update">You\'re customer information was updated!</p><br>';
@@ -251,7 +251,7 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
         -1px -1px 0 #333,
         1px -1px 0 #333,
         -1px 1px 0 #333,
-        1px 1px 0 #333; 
+        1px 1px 0 #333;
 }
 #receipt h3 {
     padding-left:0px;
@@ -316,14 +316,26 @@ Placed on " . date('F j, Y', $timestamp) . "</p>
         $body .= "</body></html>";
 
 
-        $to = $_POST["email"];
+        // $to = $_POST["email"];
 
         $subject = "Your recent order receipt from Casey's Candy Store.";
 
-        $headers = "From: webmaster@xcpastudios.com\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-        mail($to, $subject, $body, $headers);
+        // $headers = "From: webmaster@caseybennington.com\r\n";
+        // $headers .= "MIME-Version: 1.0\r\n";
+        // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        // mail($to, $subject, $body, $headers);
+
+        $from = new SendGrid\Email(null, "webmaster@caseybennignton.com");
+        $to = new SendGrid\Email(null, $_POST["email"]);
+        $content = new SendGrid\Content("text/plain", $body);
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+        $apiKey = getenv('SENDGRID_API_KEY');
+        $sg = new \SendGrid($apiKey);
+
+        $response = $sg->client->mail()->send()->post($mail);
+
+
     } else { // Rollback and report the problem.
         mysqli_rollback($dbc);
         echo '<p>Your order could not be processed due to a system error. You will be contacted in order to have the problem fixed. We apologize for the inconvenience.</p>';
