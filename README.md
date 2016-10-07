@@ -9,6 +9,6 @@ It also has admin functionality that allows a designated user to add, edit, and 
 
 This was my first ecommerce application and I definitely learned a great deal from it.
 
-I no longer maintain this application but it should be noted there are a number of bugs that exist within the codebase, however, they do not interfer with the core functionality.
+I no longer maintain this application but it should be noted there are a number of bugs that exist within the codebase, however, they do not interfere with the core functionality.
 
 [See it here.](https://caseys-chocolate-store.herokuapp.com/)
